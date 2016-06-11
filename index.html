@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clustered Road Accidents Victoria</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
+	<link rel="stylesheet" href="MarkerCluster.css" />
+<link rel="stylesheet" href="MarkerCluster.Default.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+<h1 style="text-align:center">Grubert's Map </h1>
+  <div id="map" style="width: 1600px; height: 800px"></div>
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>    
+  <script src="something normal.geojson"></script>
+  <!-- <script src="giant fucking table.json"></script> -->
+  <!-- <script src="points_rand.js"></script> -->
+  <script src="leaflet.markercluster-src.js"></script>
+  <script>
+	var map = L.map('map').setView([0,0], 8);
+	L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png').addTo(map); //will be our basemap.
+	var markers = L.markerClusterGroup({ 
+		chunkedLoading: true,
+		polygonOptions: {fill:true} });
+	var points_rand = L.geoJson(points, {
+		onEachFeature: function (feature, layer) //functionality on click on feature
+			{
+			// layer.bindPopup("hi! I am one of thousands"); //just to show something in the popup. could be part of the geojson as well!
+			}
+		});
+	markers.addLayer(points_rand); // add it to the cluster group
+	map.addLayer(markers);		// add it to the map
+	map.fitBounds(markers.getBounds()); //set view on the cluster extend
+  </script>
+ </body>
+</html>
