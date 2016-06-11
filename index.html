@@ -6,19 +6,15 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
 	<link rel="stylesheet" href="MarkerCluster.css" />
 <link rel="stylesheet" href="MarkerCluster.Default.css" />
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 </head>
 <body>
 <h1 style="text-align:center; font-family:calibri">Road Accidents Involving Pedestrians - VIC 2015 data </h1>
   <div id="map" style="width: 1600px; height: 800px; margin:auto"></div>
   <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>    
   <script src="something normal.geojson"></script>
-  <!-- <script src="giant fucking table.json"></script> -->
-  <!-- <script src="points_rand.js"></script> -->
   <script src="leaflet.markercluster-src.js"></script>
   <script>
 	var map = L.map('map').setView([0,0], 8);
-	// L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png').addTo(map); //will be our basemap.
 	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map); //will be our basemap.
 	var markers = L.markerClusterGroup({ 
 		chunkedLoading: true,
